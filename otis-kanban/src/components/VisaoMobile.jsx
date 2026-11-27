@@ -5,7 +5,7 @@ export default function VisaoMobile({ ocorrencias }) {
   const outras = ocorrencias.filter(o => o.prioridade !== 'P1_EMERGENCIA');
 
   return (
-    <div className="container py-3" style={{ maxWidth: '480px' }}>
+    <div className="container px-0 py-2" style={{ maxWidth: '480px' }}>
       <h4 className="text-center text-primary mb-3">
         <i className="bi bi-phone me-2"></i>Atendimento de Campo
       </h4>
@@ -31,7 +31,7 @@ export default function VisaoMobile({ ocorrencias }) {
       {outras.map(oc => (
         <div key={oc.id} className="card shadow-sm mb-2">
           <div className="card-body p-3">
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex flex-wrap justify-content-between align-items-center gap-2">
               <span className="fw-bold">{oc.id}</span>
               <span className="badge bg-warning text-dark">{oc.prioridade}</span>
             </div>

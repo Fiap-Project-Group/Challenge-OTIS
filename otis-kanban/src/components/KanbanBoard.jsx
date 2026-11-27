@@ -22,8 +22,8 @@ export default function KanbanBoard({ ocorrencias, setOcorrencias }) {
   };
 
   return (
-    <div className="container-fluid py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+    <div className="container-fluid px-0 py-2 py-md-4">
+      <div className="d-flex justify-content-between align-items-center mb-3 mb-md-4">
         <h3 className="text-dark fw-bold mb-0">
           <i className="bi bi-kanban me-2"></i>Quadro de Ocorrências
         </h3>

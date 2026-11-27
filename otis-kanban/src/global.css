@@ -1,7 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-main{
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
   background-color: hsl(0, 0%, 90%);
-  height: 93vh;
-  font-family: 'Inter', 'Roboto';
+  min-height: calc(100vh - 56px);
+  height: auto;
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+.card-title,
+.card-subtitle,
+.card-text,
+.navbar-brand,
+.modal-title {
+  overflow-wrap: anywhere;
+}
+
+.navbar .navbar-brand {
+  font-size: 1.75rem;
+  padding: 0;
+}
+
+.navbar-acoes .btn {
+  white-space: nowrap;
+}
+
+.card-acoes {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-acoes .btn {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-acoes {
+    width: 100%;
+  }
+
+  .navbar-acoes .btn {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  main.container-fluid {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.35rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .display-5 {
+    font-size: 2.25rem;
+  }
+
+  .modal.show {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .modal-footer {
+    gap: 0.5rem;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  .coluna-header {
+    gap: 0.35rem;
+    align-items: flex-start !important;
+  }
+
+  .coluna-header span:first-child {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar .navbar-brand {
+    font-size: 1.15rem;
+  }
+
+  .navbar-acoes .btn,
+  .card-acoes .btn {
+    font-size: 0.85rem;
+  }
+
+  .card-body {
+    padding: 0.75rem;
+  }
+
+  .badge {
+    white-space: normal;
+    text-align: left;
+  }
 }
