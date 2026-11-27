@@ -14,7 +14,7 @@ export default function Relatorios({ ocorrencias }) {
 
       {/* Cards de Métricas Rápidas */}
       <div className="row g-3 mb-4">
-        <div className="col-md-3">
+        <div className="col-12 col-sm-6 col-xl-3">
           <div className="card text-white bg-dark shadow-sm">
             <div className="card-body text-center">
               <h5 className="card-title text-light">Total de Chamados</h5>
@@ -22,7 +22,7 @@ export default function Relatorios({ ocorrencias }) {
             </div>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col-12 col-sm-6 col-xl-3">
           <div className="card text-white bg-danger shadow-sm">
             <div className="card-body text-center">
               <h5 className="card-title">Emergências (P1)</h5>
@@ -30,7 +30,7 @@ export default function Relatorios({ ocorrencias }) {
             </div>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col-12 col-sm-6 col-xl-3">
           <div className="card text-white bg-warning shadow-sm">
             <div className="card-body text-center">
               <h5 className="card-title text-light">Em Atendimento</h5>
@@ -38,7 +38,7 @@ export default function Relatorios({ ocorrencias }) {
             </div>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col-12 col-sm-6 col-xl-3">
           <div className="card text-white bg-success shadow-sm">
             <div className="card-body text-center">
               <h5 className="card-title">Concluídos</h5>

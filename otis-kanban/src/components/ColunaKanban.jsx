@@ -5,10 +5,10 @@ export default function ColunaKanban({ coluna, ocorrencias, mudarStatus }) {
   const chamadosDaColuna = ocorrencias.filter(oc => oc.status === coluna.id);
 
   return (
-    <div className="col-md-3">
+    <div className="col-12 col-sm-6 col-xl-3">
       <div className={`card shadow-sm h-100 border-top border-4 ${coluna.cor}`}>
-        <div className="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
-          {coluna.titulo}
+        <div className="coluna-header card-header bg-white fw-bold d-flex justify-content-between align-items-center flex-wrap">
+          <span>{coluna.titulo}</span>
           <span className="badge bg-secondary rounded-pill">{chamadosDaColuna.length}</span>
         </div>
         <div className="card-body bg-light d-flex flex-column gap-3">

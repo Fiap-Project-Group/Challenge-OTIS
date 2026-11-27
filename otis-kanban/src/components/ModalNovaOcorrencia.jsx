@@ -31,7 +31,7 @@ export default function ModalNovaOcorrencia({ fechar, setOcorrencias }) {
 
   return (
     <div className="modal show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-      <div className="modal-dialog">
+      <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header bg-primary text-white">
             <h5 className="modal-title">Registar Nova Ocorrência</h5>
@@ -87,7 +87,7 @@ export default function ModalNovaOcorrencia({ fechar, setOcorrencias }) {
                 ></textarea>
               </div>
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer flex-column flex-sm-row">
               <button type="button" className="btn btn-secondary" onClick={fechar}>Cancelar</button>
               <button type="submit" className="btn btn-primary">Salvar Ocorrência</button>
             </div>
