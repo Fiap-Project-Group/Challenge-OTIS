@@ -4,13 +4,13 @@ export const ocorrenciasIniciais = [
     edificio: "Torre Central",
     elevador: "E-21",
     prioridade: "P1_EMERGENCIA", // P1_EMERGENCIA, ALTA, MEDIA, BAIXA
-    status: "EM_ATENDIMENTO",   // TRIAGEM, DESLOCAMENTO, EM_ATENDIMENTO, CONCLUIDO
+    status: "EM_ATENDIMENTO", // TRIAGEM, DESLOCAMENTO, EM_ATENDIMENTO, CONCLUIDO
     tipoProblema: "Passageiro Preso",
     descricao: "Elevador parou entre o 5º e 6º andar com 2 pessoas.",
     tecnico: "Carlos Silva",
     horario: "14:30",
     sla: "15 min",
-    solucao: ""
+    solucao: "",
   },
   {
     id: "TK-0831",
@@ -23,7 +23,7 @@ export const ocorrenciasIniciais = [
     tecnico: "Ana Costa",
     horario: "13:45",
     sla: "45 min",
-    solucao: ""
+    solucao: "",
   },
   {
     id: "TK-0834",
@@ -36,6 +36,32 @@ export const ocorrenciasIniciais = [
     tecnico: "Pendente",
     horario: "12:10",
     sla: "120 min",
-    solucao: ""
+    solucao: "",
+  },
+  {
+    id: "TK-0867",
+    edificio: "Edifício Empresarial Vila Olímpia",
+    elevador: "E-45",
+    prioridade: "BAIXA",
+    status: "TRIAGEM",
+    tipoProblema: "Ruído anormal",
+    descricao: "Usuários relatam ruído incomum durante a subida",
+    tecnico: "Pendente",
+    horario: "14:25",
+    sla: "90 min",
+    solucao: "",
+  },
+  {
+    id: "TK-0899",
+    edificio: "Edifício Comercial Berrini",
+    elevador: "E-05",
+    prioridade: "CONCLUIDO",
+    status: "DESLOCAMENTO",
+    tipoProblema: "Iluminação interna",
+    descricao: "Iluminação interna do elevador apresentou falha",
+    tecnico: "Carlos Emanuel",
+    horario: "10:15",
+    sla: "240 min",
+    solucao: "",
   }
 ];
