@@ -59,7 +59,7 @@ otis-kanban/
 
 ## Vídeo pitch
 
-Link (acesso público): [Assistir no YouTube]()
+Link (acesso público): [Assistir no YouTube](https://www.youtube.com/watch?v=nFW98b_MRVM)
 
 
 ## Deploy
