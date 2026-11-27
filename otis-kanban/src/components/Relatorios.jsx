@@ -17,7 +17,7 @@ export default function Relatorios({ ocorrencias }) {
         <div className="col-md-3">
           <div className="card text-white bg-dark shadow-sm">
             <div className="card-body text-center">
-              <h5 className="card-title text-muted">Total de Chamados</h5>
+              <h5 className="card-title text-light">Total de Chamados</h5>
               <p className="display-5 fw-bold">{total}</p>
             </div>
           </div>
@@ -33,8 +33,8 @@ export default function Relatorios({ ocorrencias }) {
         <div className="col-md-3">
           <div className="card text-white bg-warning shadow-sm">
             <div className="card-body text-center">
-              <h5 className="card-title text-dark">Em Atendimento</h5>
-              <p className="display-5 fw-bold text-dark">{emAndamento}</p>
+              <h5 className="card-title text-light">Em Atendimento</h5>
+              <p className="display-5 fw-bold text-light">{emAndamento}</p>
             </div>
           </div>
         </div>
