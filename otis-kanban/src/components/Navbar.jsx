@@ -3,14 +3,15 @@ import React from 'react';
 export default function Navbar({ abaAtiva, setAbaAtiva, abrirModalNovo }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-      <div className="container-fluid">
-        <span className="navbar-brand fw-bold fs-4 ms-2">
-          <i className="bi bi-box-seam me-2"></i>OTIS Kanban
+      <div className="container-fluid pe-5">
+        <span className="navbar-brand fw-bold fs-4 ms-2 d-flex align-content-center ps-5">
+          <i class="fa-solid fa-cube me-2 fs-2 my-auto"></i>
+          <p className='fs-2 ps-1 m-0'>OTIS</p>
         </span>
 
         <div className="d-flex gap-2">
           <button
-            className={`btn ${abaAtiva === 'kanban' ? 'btn-light fw-bold' : 'btn-outline-light'}`}
+            className={`btn ${abaAtiva === 'kanban' ? 'btn-light fw-bold' : 'btn-outline-light'}`} 
             onClick={() => setAbaAtiva('kanban')}
           >
             <i className="bi bi-kanban me-1"></i> Quadro Kanban

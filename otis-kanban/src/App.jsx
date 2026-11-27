@@ -5,6 +5,7 @@ import VisaoMobile from './components/VisaoMobile';
 import Relatorios from './components/Relatorios';
 import ModalNovaOcorrencia from './components/ModalNovaOcorrencia';
 import { ocorrenciasIniciais } from './data/dadosIniciais';
+import './global.css'
 
 export default function App() {
   const [abaAtiva, setAbaAtiva] = useState('kanban');

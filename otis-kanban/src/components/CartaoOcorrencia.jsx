@@ -20,14 +20,17 @@ export default function CartaoOcorrencia({ oc, mudarStatus, colunaId }) {
         <div className="d-flex justify-content-between border-top pt-2">
           {colunaId !== 'TRIAGEM' && (
             <button 
-              className="btn btn-sm btn-outline-secondary py-0 px-1"
+              className="btn btn-sm btn-outline-primary py-0 px-1"
               onClick={() => {
                 const ordem = ['TRIAGEM', 'DESLOCAMENTO', 'EM_ATENDIMENTO', 'CONCLUIDO'];
                 const indexAtual = ordem.indexOf(colunaId);
                 mudarStatus(oc.id, ordem[indexAtual - 1]);
               }}
             >
-              ⬅️ Voltar
+              <div className='d-flex align-items-center ps-1'>
+                <i class="fa-solid fa-arrow-left-long"></i>
+                <p className='my-auto px-2 fs-6'>Voltar</p>
+              </div>
             </button>
           )}
           {colunaId !== 'CONCLUIDO' && (
@@ -39,7 +42,10 @@ export default function CartaoOcorrencia({ oc, mudarStatus, colunaId }) {
                 mudarStatus(oc.id, ordem[indexAtual + 1]);
               }}
             >
-              Avançar ➡️
+              <div className='d-flex align-items-center pe-1'>
+                <p className='my-auto px-2 fs-6'>Avançar</p>
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </div>
             </button>
           )}
         </div>
