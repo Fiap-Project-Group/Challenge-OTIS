@@ -517,3 +517,35 @@ main {
     padding: 0.65rem 0.7rem;
   }
 }
+
+/* ---------- Kanban somente leitura ---------- */
+.oc-card-clicavel {
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.oc-card-clicavel:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Visão Técnico ---------- */
+.status-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--app-muted);
+  border: 1px solid var(--app-border-strong);
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+}
+
+.mobile-view .btn-success {
+  background: var(--app-success);
+  border-color: var(--app-success);
+}

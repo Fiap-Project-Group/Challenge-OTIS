@@ -61,7 +61,7 @@ export default function ModalNovaOcorrencia({ fechar, setOcorrencias }) {
               <div className="mb-3">
                 <label className="form-label">Prioridade</label>
                 <select className="form-select" value={prioridade} onChange={e => setPrioridade(e.target.value)}>
-                  <option value="P1_EMERGENCIA">P1 - Emergência (Passageiro Preso)</option>
+                  <option value="P1_EMERGENCIA">Emergência (Passageiro Preso)</option>
                   <option value="ALTA">Alta</option>
                   <option value="MEDIA">Média</option>
                   <option value="BAIXA">Baixa</option>

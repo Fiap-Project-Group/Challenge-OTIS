@@ -1,7 +1,7 @@
 import React from 'react';
 import CartaoOcorrencia from './CartaoOcorrencia';
 
-export default function ColunaKanban({ coluna, ocorrencias, mudarStatus }) {
+export default function ColunaKanban({ coluna, ocorrencias, abrirDetalhes }) {
   const chamadosDaColuna = ocorrencias.filter(oc => oc.status === coluna.id);
 
   return (
@@ -19,8 +19,7 @@ export default function ColunaKanban({ coluna, ocorrencias, mudarStatus }) {
               <CartaoOcorrencia
                 key={oc.id}
                 oc={oc}
-                mudarStatus={mudarStatus}
-                colunaId={coluna.id}
+                abrirDetalhes={abrirDetalhes}
               />
             ))
           )}

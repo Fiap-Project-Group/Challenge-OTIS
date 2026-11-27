@@ -8,7 +8,7 @@ export default function Relatorios({ ocorrencias }) {
 
   const metricas = [
     { rotulo: 'Total de chamados', valor: total, cor: 'var(--app-accent)' },
-    { rotulo: 'Emergências (P1)', valor: emergencias, cor: 'var(--app-danger)' },
+    { rotulo: 'Emergências', valor: emergencias, cor: 'var(--app-danger)' },
     { rotulo: 'Em andamento', valor: emAndamento, cor: 'var(--app-warning)' },
     { rotulo: 'Concluídos', valor: concluidos, cor: 'var(--app-success)' },
   ];

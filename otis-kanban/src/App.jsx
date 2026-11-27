@@ -4,14 +4,15 @@ import KanbanBoard from './components/KanbanBoard';
 import VisaoMobile from './components/VisaoMobile';
 import Relatorios from './components/Relatorios';
 import ModalNovaOcorrencia from './components/ModalNovaOcorrencia';
-import { ocorrenciasIniciais } from './data/dadosIniciais';
+import { ocorrenciasIniciais, idsExemploRemovidos } from './data/dadosIniciais';
 import './global.css'
 
 export default function App() {
   const [abaAtiva, setAbaAtiva] = useState('kanban');
   const [ocorrencias, setOcorrencias] = useState(() => {
     const dadosSalvos = localStorage.getItem('otis_ocorrencias');
-    return dadosSalvos ? JSON.parse(dadosSalvos) : ocorrenciasIniciais;
+    if (!dadosSalvos) return ocorrenciasIniciais;
+    return JSON.parse(dadosSalvos).filter(oc => !idsExemploRemovidos.includes(oc.id));
   });
   const [mostrarModalNovo, setMostrarModalNovo] = useState(false);
 
@@ -29,7 +30,7 @@ export default function App() {
 
       <main className="container-fluid px-3 px-lg-4 py-2 py-md-3">
         {abaAtiva === 'kanban' && (
-          <KanbanBoard ocorrencias={ocorrencias} setOcorrencias={setOcorrencias} />
+          <KanbanBoard ocorrencias={ocorrencias} />
         )}
         {abaAtiva === 'mobile' && (
           <VisaoMobile ocorrencias={ocorrencias} setOcorrencias={setOcorrencias} />
