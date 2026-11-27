@@ -6,21 +6,21 @@ export default function ColunaKanban({ coluna, ocorrencias, mudarStatus }) {
 
   return (
     <div className="col-12 col-sm-6 col-xl-3">
-      <div className={`card shadow-sm h-100 border-top border-4 ${coluna.cor}`}>
-        <div className="coluna-header card-header bg-white fw-bold d-flex justify-content-between align-items-center flex-wrap">
+      <div className="kanban-col" style={{ '--col-color': coluna.cor }}>
+        <div className="coluna-header">
           <span>{coluna.titulo}</span>
-          <span className="badge bg-secondary rounded-pill">{chamadosDaColuna.length}</span>
+          <span className="kanban-count">{chamadosDaColuna.length}</span>
         </div>
-        <div className="card-body bg-light d-flex flex-column gap-3">
+        <div className="kanban-col-body">
           {chamadosDaColuna.length === 0 ? (
-            <p className="text-muted text-center small my-3">Nenhuma ocorrência</p>
+            <div className="kanban-empty">Nenhuma ocorrência</div>
           ) : (
             chamadosDaColuna.map(oc => (
-              <CartaoOcorrencia 
-                key={oc.id} 
-                oc={oc} 
-                mudarStatus={mudarStatus} 
-                colunaId={coluna.id} 
+              <CartaoOcorrencia
+                key={oc.id}
+                oc={oc}
+                mudarStatus={mudarStatus}
+                colunaId={coluna.id}
               />
             ))
           )}

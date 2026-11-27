@@ -20,14 +20,14 @@ export default function App() {
   }, [ocorrencias]);
 
   return (
-    <div className="min-vh-100 bg-light">
+    <div className="app-shell">
       <Navbar
         abaAtiva={abaAtiva}
         setAbaAtiva={setAbaAtiva}
         abrirModalNovo={() => setMostrarModalNovo(true)}
       />
 
-      <main className="container-fluid py-2 py-md-3">
+      <main className="container-fluid px-3 px-lg-4 py-2 py-md-3">
         {abaAtiva === 'kanban' && (
           <KanbanBoard ocorrencias={ocorrencias} setOcorrencias={setOcorrencias} />
         )}

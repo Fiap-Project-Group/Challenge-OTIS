@@ -6,46 +6,29 @@ export default function Relatorios({ ocorrencias }) {
   const emAndamento = ocorrencias.filter(o => o.status === 'EM_ATENDIMENTO' || o.status === 'DESLOCAMENTO').length;
   const concluidos = ocorrencias.filter(o => o.status === 'CONCLUIDO').length;
 
-  return (
-    <div className="container my-4">
-      <h2 className="mb-4 text-primary">
-        <i className="bi bi-graph-up-arrow me-2"></i>Painel Analítico de Ocorrências
-      </h2>
+  const metricas = [
+    { rotulo: 'Total de chamados', valor: total, cor: 'var(--app-accent)' },
+    { rotulo: 'Emergências (P1)', valor: emergencias, cor: 'var(--app-danger)' },
+    { rotulo: 'Em andamento', valor: emAndamento, cor: 'var(--app-warning)' },
+    { rotulo: 'Concluídos', valor: concluidos, cor: 'var(--app-success)' },
+  ];
 
-      {/* Cards de Métricas Rápidas */}
+  return (
+    <div className="container-xl px-0 py-2 py-md-3">
+      <div className="page-header">
+        <h3 className="page-title">Relatórios</h3>
+        <p className="page-subtitle">Resumo das ocorrências registradas</p>
+      </div>
+
       <div className="row g-3 mb-4">
-        <div className="col-12 col-sm-6 col-xl-3">
-          <div className="card text-white bg-dark shadow-sm">
-            <div className="card-body text-center">
-              <h5 className="card-title text-light">Total de Chamados</h5>
-              <p className="display-5 fw-bold">{total}</p>
+        {metricas.map(m => (
+          <div className="col-12 col-sm-6 col-xl-3" key={m.rotulo}>
+            <div className="metric-card" style={{ '--metric-color': m.cor }}>
+              <p className="metric-label">{m.rotulo}</p>
+              <p className="metric-value">{m.valor}</p>
             </div>
           </div>
-        </div>
-        <div className="col-12 col-sm-6 col-xl-3">
-          <div className="card text-white bg-danger shadow-sm">
-            <div className="card-body text-center">
-              <h5 className="card-title">Emergências (P1)</h5>
-              <p className="display-5 fw-bold">{emergencias}</p>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-sm-6 col-xl-3">
-          <div className="card text-white bg-warning shadow-sm">
-            <div className="card-body text-center">
-              <h5 className="card-title text-light">Em Atendimento</h5>
-              <p className="display-5 fw-bold text-light">{emAndamento}</p>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-sm-6 col-xl-3">
-          <div className="card text-white bg-success shadow-sm">
-            <div className="card-body text-center">
-              <h5 className="card-title">Concluídos</h5>
-              <p className="display-5 fw-bold">{concluidos}</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+const abas = [
+  { id: 'kanban', rotulo: 'Quadro Kanban' },
+  { id: 'mobile', rotulo: 'Visão Técnico' },
+  { id: 'relatorios', rotulo: 'Relatórios' },
+];
+
 export default function Navbar({ abaAtiva, setAbaAtiva, abrirModalNovo }) {
   const [menuAberto, setMenuAberto] = useState(false);
 
@@ -14,11 +20,12 @@ export default function Navbar({ abaAtiva, setAbaAtiva, abrirModalNovo }) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-      <div className="container-fluid px-3">
-        <span className="navbar-brand fw-bold d-flex align-items-center gap-2 m-0">
-          <i className="fa-solid fa-cube"></i>
-          <span>OTIS</span>
+    <nav className="navbar navbar-expand-lg app-navbar">
+      <div className="container-fluid px-3 px-lg-4">
+        <span className="navbar-brand app-brand">
+          <span className="app-brand-name">OTIS</span>
+          <span className="app-brand-divider"></span>
+          <span className="app-brand-sub">Central de Ocorrências</span>
         </span>
 
         <button
@@ -32,30 +39,19 @@ export default function Navbar({ abaAtiva, setAbaAtiva, abrirModalNovo }) {
         </button>
 
         <div className={`collapse navbar-collapse ${menuAberto ? 'show' : ''}`}>
-          <div className="navbar-acoes d-flex flex-column flex-lg-row gap-2 py-3 py-lg-0 ms-lg-auto">
-            <button
-              className={`btn ${abaAtiva === 'kanban' ? 'btn-light fw-bold' : 'btn-outline-light'}`}
-              onClick={() => irPara('kanban')}
-            >
-              <i className="bi bi-kanban me-1"></i> Quadro Kanban
-            </button>
+          <div className="navbar-acoes d-flex flex-column flex-lg-row align-items-lg-center gap-2 py-3 py-lg-0 ms-lg-auto">
+            {abas.map(aba => (
+              <button
+                key={aba.id}
+                className={`btn app-tab ${abaAtiva === aba.id ? 'active' : ''}`}
+                onClick={() => irPara(aba.id)}
+              >
+                {aba.rotulo}
+              </button>
+            ))}
 
-            <button
-              className={`btn ${abaAtiva === 'mobile' ? 'btn-light fw-bold' : 'btn-outline-light'}`}
-              onClick={() => irPara('mobile')}
-            >
-              <i className="bi bi-phone me-1"></i> Visão Técnico
-            </button>
-
-            <button
-              className={`btn ${abaAtiva === 'relatorios' ? 'btn-light fw-bold' : 'btn-outline-light'}`}
-              onClick={() => irPara('relatorios')}
-            >
-              <i className="bi bi-bar-chart-line me-1"></i> Relatórios
-            </button>
-
-            <button className="btn btn-warning fw-bold" onClick={abrirNovo}>
-              <i className="bi bi-plus-lg me-1"></i> Nova Ocorrência
+            <button className="btn btn-cta ms-lg-3" onClick={abrirNovo}>
+              <i className="fa-solid fa-plus me-2"></i>Nova Ocorrência
             </button>
           </div>
         </div>

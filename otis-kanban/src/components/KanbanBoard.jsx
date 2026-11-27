@@ -4,10 +4,10 @@ import ColunaKanban from './ColunaKanban';
 export default function KanbanBoard({ ocorrencias, setOcorrencias }) {
   // Configuração das 4 colunas do Kanban
   const colunas = [
-    { id: 'TRIAGEM', titulo: 'Recebidos (Triagem)', cor: 'border-secondary' },
-    { id: 'DESLOCAMENTO', titulo: 'Em Deslocamento', cor: 'border-warning' },
-    { id: 'EM_ATENDIMENTO', titulo: 'Em Atendimento', cor: 'border-danger' },
-    { id: 'CONCLUIDO', titulo: 'Concluído', cor: 'border-success' }
+    { id: 'TRIAGEM', titulo: 'Recebidos (Triagem)', cor: 'var(--app-neutral)' },
+    { id: 'DESLOCAMENTO', titulo: 'Em Deslocamento', cor: 'var(--app-warning)' },
+    { id: 'EM_ATENDIMENTO', titulo: 'Em Atendimento', cor: 'var(--app-danger)' },
+    { id: 'CONCLUIDO', titulo: 'Concluído', cor: 'var(--app-success)' }
   ];
 
   // Função para mudar o status de uma ocorrência
@@ -22,11 +22,10 @@ export default function KanbanBoard({ ocorrencias, setOcorrencias }) {
   };
 
   return (
-    <div className="container-fluid px-0 py-2 py-md-4">
-      <div className="d-flex justify-content-between align-items-center mb-3 mb-md-4">
-        <h3 className="text-dark fw-bold mb-0">
-          <i className="bi bi-kanban me-2"></i>Quadro de Ocorrências
-        </h3>
+    <div className="py-2 py-md-3">
+      <div className="page-header">
+        <h3 className="page-title">Quadro de Ocorrências</h3>
+        <p className="page-subtitle">{ocorrencias.length} ocorrência(s) registrada(s)</p>
       </div>
 
       <div className="row g-3">

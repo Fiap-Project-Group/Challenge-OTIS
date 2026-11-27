@@ -1,5 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* ==========================================================
+   Tema OTIS — azul-marinho, plano e simples
+   ========================================================== */
+
+:root,
+[data-bs-theme="dark"] {
+  --app-bg: #0a1b3f;
+  --app-surface: #0c1b38;
+  --app-surface-2: #112347;
+  --app-border: #1d3361;
+  --app-border-strong: #2b4680;
+  --app-text: #e9eef7;
+  --app-muted: #8e9dbb;
+  --app-accent: #2f6fd6;
+  --app-accent-hover: #3d7fe8;
+  --app-danger: #d9534f;
+  --app-warning: #e0a43a;
+  --app-success: #3fa36b;
+  --app-info: #5b8fd9;
+  --app-neutral: #7d8ca8;
+
+  --bs-body-bg: var(--app-bg);
+  --bs-body-color: var(--app-text);
+  --bs-secondary-color: var(--app-muted);
+  --bs-border-color: var(--app-border);
+  --bs-primary: var(--app-accent);
+  --bs-primary-rgb: 47, 111, 214;
+  --bs-body-font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+}
+
 html,
 body,
 #root {
@@ -7,39 +37,398 @@ body,
   overflow-x: hidden;
 }
 
+html,
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: var(--app-bg);
+}
+
 main {
-  background-color: hsl(0, 0%, 90%);
-  min-height: calc(100vh - 56px);
-  height: auto;
-  font-family: 'Inter', 'Roboto', sans-serif;
+  min-height: calc(100vh - 64px);
+}
+
+.text-muted,
+.text-secondary {
+  color: var(--app-muted) !important;
 }
 
 .card-title,
 .card-subtitle,
 .card-text,
+.oc-title,
+.oc-meta,
+.oc-desc,
 .navbar-brand,
 .modal-title {
   overflow-wrap: anywhere;
 }
 
-.navbar .navbar-brand {
-  font-size: 1.75rem;
+/* ---------- Navbar ---------- */
+.app-navbar {
+  background: var(--app-surface);
+  border-bottom: 1px solid var(--app-border);
+  min-height: 64px;
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0;
   padding: 0;
+}
+
+.app-brand-name {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  color: #fff;
+}
+
+.app-brand-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--app-border-strong);
+}
+
+.app-brand-sub {
+  font-size: 0.85rem;
+  color: var(--app-muted);
+}
+
+.navbar-toggler {
+  border-color: var(--app-border-strong);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 .navbar-acoes .btn {
   white-space: nowrap;
 }
 
+.app-tab {
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--app-muted);
+  font-size: 0.9rem;
+  padding: 0.45rem 0.85rem;
+}
+
+.app-tab:hover {
+  color: var(--app-text);
+  background: var(--app-surface-2);
+}
+
+.app-tab.active {
+  color: #fff;
+  background: var(--app-surface-2);
+  box-shadow: inset 0 -2px 0 var(--app-accent);
+}
+
+.btn-cta {
+  background: #fff;
+  color: var(--app-bg);
+  border: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.95rem;
+}
+
+.btn-cta:hover,
+.btn-cta:focus {
+  background: #dfe7f5;
+  color: var(--app-bg);
+}
+
+/* ---------- Títulos de página ---------- */
+.page-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.page-title {
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin: 0;
+  color: var(--app-text);
+}
+
+.page-subtitle {
+  color: var(--app-muted);
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0;
+}
+
+/* ---------- Kanban ---------- */
+.kanban-col {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-top: 3px solid var(--col-color);
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.coluna-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--app-border);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.kanban-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--app-muted);
+}
+
+.kanban-col-body {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+  min-height: 200px;
+}
+
+.kanban-empty {
+  margin: auto;
+  color: var(--app-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Cartão de ocorrência ---------- */
+.oc-card {
+  background: var(--app-surface-2);
+  border: 1px solid var(--app-border);
+  border-left: 3px solid var(--prio-color, var(--app-neutral));
+  border-radius: 4px;
+  padding: 0.75rem 0.85rem;
+}
+
+.oc-card:hover {
+  border-color: var(--app-border-strong);
+  border-left-color: var(--prio-color, var(--app-neutral));
+}
+
+.oc-id {
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--app-text);
+}
+
+.oc-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.oc-meta {
+  font-size: 0.78rem;
+  color: var(--app-muted);
+}
+
+.oc-meta i {
+  width: 14px;
+  margin-right: 0.3rem;
+  opacity: 0.8;
+}
+
+.oc-desc {
+  font-size: 0.82rem;
+  color: var(--app-muted);
+  margin: 0.45rem 0 0.65rem;
+  line-height: 1.45;
+}
+
 .card-acoes {
+  display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  border-top: 1px solid var(--app-border);
+  padding-top: 0.55rem;
 }
 
 .card-acoes .btn {
   flex: 1 1 auto;
 }
 
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--app-border-strong);
+  color: var(--app-muted);
+  font-size: 0.78rem;
+  padding: 0.25rem 0.6rem;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+  color: var(--app-text);
+  border-color: var(--app-muted);
+  background: transparent;
+}
+
+.btn-ghost.primary {
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+  color: #fff;
+}
+
+.btn-ghost.primary:hover {
+  background: var(--app-accent-hover);
+  border-color: var(--app-accent-hover);
+}
+
+/* ---------- Prioridade ---------- */
+.prio-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--prio-color);
+}
+
+.prio-P1_EMERGENCIA { --prio-color: var(--app-danger); }
+.prio-ALTA          { --prio-color: var(--app-warning); }
+.prio-MEDIA         { --prio-color: var(--app-info); }
+.prio-BAIXA         { --prio-color: var(--app-neutral); }
+
+/* ---------- Relatórios ---------- */
+.metric-card {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-left: 3px solid var(--metric-color);
+  border-radius: 4px;
+  padding: 1rem 1.15rem;
+  height: 100%;
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--app-muted);
+  margin: 0;
+}
+
+.metric-value {
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0.35rem 0 0;
+}
+
+/* ---------- Visão Técnico ---------- */
+.mobile-view {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.emergency-card {
+  background: var(--app-surface-2);
+  border: 1px solid var(--app-border);
+  border-left: 3px solid var(--app-danger);
+  border-radius: 4px;
+  padding: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Modais e formulários ---------- */
+.app-modal-backdrop {
+  background: rgba(2, 7, 18, 0.75);
+}
+
+.modal-content {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-strong);
+  border-radius: 4px;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--app-border);
+}
+
+.modal-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.detalhe-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--app-muted);
+  margin: 0;
+}
+
+.detalhe-valor {
+  margin: 0.15rem 0 0.9rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  color: var(--app-muted);
+}
+
+.form-control,
+.form-select {
+  background-color: var(--app-bg);
+  border-color: var(--app-border-strong);
+  color: var(--app-text);
+  border-radius: 4px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  border-color: var(--app-accent);
+  box-shadow: none;
+}
+
+.btn {
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--app-accent-hover);
+  border-color: var(--app-accent-hover);
+}
+
+/* ---------- Responsivo ---------- */
 @media (max-width: 991.98px) {
   .navbar-acoes {
     width: 100%;
@@ -48,6 +437,15 @@ main {
   .navbar-acoes .btn {
     width: 100%;
     margin-left: 0 !important;
+    text-align: left;
+  }
+
+  .navbar-acoes .btn-cta {
+    text-align: center;
+  }
+
+  .app-tab.active {
+    box-shadow: inset 2px 0 0 var(--app-accent);
   }
 }
 
@@ -57,20 +455,21 @@ main {
     padding-right: 0.75rem;
   }
 
-  .navbar .navbar-brand {
-    font-size: 1.35rem;
+  .app-brand-name {
+    font-size: 1.3rem;
   }
 
-  h2 {
-    font-size: 1.35rem;
+  .app-brand-divider,
+  .app-brand-sub {
+    display: none;
   }
 
-  h3 {
+  .page-title {
     font-size: 1.2rem;
   }
 
-  .display-5 {
-    font-size: 2.25rem;
+  .metric-value {
+    font-size: 1.8rem;
   }
 
   .modal.show {
@@ -100,8 +499,7 @@ main {
   }
 
   .coluna-header {
-    gap: 0.35rem;
-    align-items: flex-start !important;
+    align-items: flex-start;
   }
 
   .coluna-header span:first-child {
@@ -110,21 +508,12 @@ main {
 }
 
 @media (max-width: 360px) {
-  .navbar .navbar-brand {
-    font-size: 1.15rem;
-  }
-
   .navbar-acoes .btn,
   .card-acoes .btn {
     font-size: 0.85rem;
   }
 
-  .card-body {
-    padding: 0.75rem;
-  }
-
-  .badge {
-    white-space: normal;
-    text-align: left;
+  .oc-card {
+    padding: 0.65rem 0.7rem;
   }
 }
