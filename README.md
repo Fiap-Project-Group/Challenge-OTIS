@@ -61,6 +61,11 @@ otis-kanban/
 
 Link (acesso público): [Assistir no YouTube]()
 
+
+## Deploy
+
+Link do deploy [Acesse o deploy](challenge-otis-two.vercel.app)
+
 ## Como abrir e executar
 
 1. Acesse a pasta do projeto no terminal:
