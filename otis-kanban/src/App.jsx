@@ -27,7 +27,7 @@ export default function App() {
         abrirModalNovo={() => setMostrarModalNovo(true)}
       />
 
-      <main className="container-fluid py-3">
+      <main className="container-fluid py-2 py-md-3">
         {abaAtiva === 'kanban' && (
           <KanbanBoard ocorrencias={ocorrencias} setOcorrencias={setOcorrencias} />
         )}
