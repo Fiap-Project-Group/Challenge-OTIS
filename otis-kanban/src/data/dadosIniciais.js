@@ -56,7 +56,7 @@ export const ocorrenciasIniciais = [
     edificio: "Edifício Comercial Berrini",
     elevador: "E-05",
     prioridade: "CONCLUIDO",
-    status: "DESLOCAMENTO",
+    status: "CONCLUIDO",
     tipoProblema: "Iluminação interna",
     descricao: "Iluminação interna do elevador apresentou falha",
     tecnico: "Carlos Emanuel",
