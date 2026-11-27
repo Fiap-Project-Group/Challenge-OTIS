@@ -30,16 +30,16 @@ export default function VisaoMobile({ ocorrencias, setOcorrencias }) {
   };
 
   const aceitar = (oc) => {
-    atualizar(oc.id, { status: 'DESLOCAMENTO', tecnico, horarioAceite: horaAtual() });
+    atualizar(oc.id, { status: 'DESLOCAMENTO', tecnico, horarioAceite: horaAtual(), aceitoEm: new Date().toISOString() });
   };
 
   const iniciarAtendimento = (oc) => {
-    atualizar(oc.id, { status: 'EM_ATENDIMENTO', horarioChegada: horaAtual() });
+    atualizar(oc.id, { status: 'EM_ATENDIMENTO', horarioChegada: horaAtual(), chegadaEm: new Date().toISOString() });
   };
 
   const confirmarConclusao = (oc) => {
     if (!solucao.trim()) return;
-    atualizar(oc.id, { status: 'CONCLUIDO', solucao: solucao.trim(), horarioConclusao: horaAtual() });
+    atualizar(oc.id, { status: 'CONCLUIDO', solucao: solucao.trim(), horarioConclusao: horaAtual(), concluidoEm: new Date().toISOString() });
     setConcluindoId(null);
     setSolucao('');
   };

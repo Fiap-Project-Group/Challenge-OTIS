@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
+import { tiposProblema, slaPorPrioridade } from '../data/dadosIniciais';
+
+const OUTRO = '__outro__';
 
 export default function ModalNovaOcorrencia({ fechar, setOcorrencias }) {
   const [edificio, setEdificio] = useState('');
   const [elevador, setElevador] = useState('');
   const [prioridade, setPrioridade] = useState('MEDIA');
-  const [tipoProblema, setTipoProblema] = useState('');
+  const [tipoSelecionado, setTipoSelecionado] = useState('');
+  const [tipoOutro, setTipoOutro] = useState('');
   const [descricao, setDescricao] = useState('');
+
+  const tipoProblema = tipoSelecionado === OUTRO ? tipoOutro.trim() : tipoSelecionado;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!edificio || !tipoProblema) return;
+    if (!edificio.trim() || !tipoProblema) return;
+
+    const agora = new Date();
+    const slaMinutos = slaPorPrioridade[prioridade];
 
     const novoChamado = {
       id: `TK-${Math.floor(1000 + Math.random() * 9000)}`,
-      edificio,
-      elevador: elevador || 'E-01',
+      edificio: edificio.trim(),
+      elevador: elevador.trim() || 'E-01',
       prioridade,
       status: 'TRIAGEM',
       tipoProblema,
       descricao,
       tecnico: 'Pendente',
-      horario: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      sla: prioridade === 'P1_EMERGENCIA' ? '15 min' : '60 min',
+      horario: agora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      criadoEm: agora.toISOString(),
+      sla: `${slaMinutos} min`,
+      slaMinutos,
       solucao: ''
     };
 
@@ -69,13 +80,26 @@ export default function ModalNovaOcorrencia({ fechar, setOcorrencias }) {
               </div>
               <div className="mb-3">
                 <label className="form-label">Tipo de Problema</label>
-                <input 
-                  type="text" 
-                  className="form-control" 
-                  value={tipoProblema} 
-                  onChange={e => setTipoProblema(e.target.value)} 
-                  required 
-                />
+                <select
+                  className="form-select"
+                  value={tipoSelecionado}
+                  onChange={e => setTipoSelecionado(e.target.value)}
+                  required
+                >
+                  <option value="" disabled>Selecione...</option>
+                  {tiposProblema.map(t => <option key={t} value={t}>{t}</option>)}
+                  <option value={OUTRO}>Outro</option>
+                </select>
+                {tipoSelecionado === OUTRO && (
+                  <input
+                    type="text"
+                    className="form-control mt-2"
+                    placeholder="Descreva o tipo de problema"
+                    value={tipoOutro}
+                    onChange={e => setTipoOutro(e.target.value)}
+                    required
+                  />
+                )}
               </div>
               <div className="mb-3">
                 <label className="form-label">Descrição</label>
